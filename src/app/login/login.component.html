@@ -1,0 +1,40 @@
+<div class="body">
+    <div class="container">
+        <div class="left-panel">
+            <div class="content">
+                <p class="description">WELCOME TO GLIGNESIS TECHNOLOGIES</p>
+                <p class="sub-description">LOGIN HERE AND START WORKING.<br>HAVE A GREAT DAY</p>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="login-container">
+                <h1 class="logo">TECH-TITANS</h1>
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                    <div class="input-box">
+                      <input formControlName="username" type="text" placeholder="UserId">
+                      <label>UserId</label>
+                      <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+                      <div *ngIf="username.invalid && (username.dirty || username.touched)" class="error-message">
+                        <div *ngIf="username.errors?.required">UserId is required.</div>
+                        <div *ngIf="username.errors?.minlength">UserId must be at least 3 characters long.</div>
+                      </div>
+                    </div>
+                  
+                    <div class="input-box">
+                      <input formControlName="password" type="password" placeholder="Password">
+                      <label>Password</label>
+                      <i class="fa-solid"></i>
+                      <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error-message">
+                        <div *ngIf="password.errors?.required">Password is required.</div>
+                        <div *ngIf="password.errors?.minlength">Password must be at least 6 characters long.</div>
+                      </div>
+                    </div>
+                  
+                    <button type="submit" class="sign-in-btn" [disabled]="loginForm.invalid">Sign in</button>
+                    <div class="error-message-bottom" *ngIf="loginError">{{loginError}}</div>
+                  </form>
+                  
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="body">
+  <div class="login-container">
+    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+      
+        <div class="input-group">
+          <input type="text" id="barcode" formControlName="barcode" name="barcode" placeholder="" autocomplete="off">
+          <label for="barcode">Item Barcode</label>
+        </div>
+    
+       
+        <div class="input-group">
+          <input type="text" id="itemname" formControlName="name" name="name" placeholder="" autocomplete="off">
+          <label for="itemname">Name of the item</label>
+        </div>
+    
+       
+        <div class="input-group">
+          <input type="text" id="weight" formControlName="weight" name="weight" placeholder="" autocomplete="off">
+          <label for="weight">Weight</label>
+        </div>
+    
+      
+        <div class="input-group">
+          <input type="text" id="netWeight" formControlName="netWeight" name="netWeight" placeholder="" autocomplete="off">
+          <label for="netWeight">Net weight</label>
+        </div>
+    
+      
+        <div class="file">
+          <label for="file">Upload image (PNG only)</label><br>
+          <input type="file" id="file" name="image" autocomplete="off" (change)="onFileChange($event)"/>
+        </div>
+    
+    
+        <div class="input-group">
+          <input type="text" id="mrp" formControlName="mrp" name="mrp" placeholder="" autocomplete="off">
+          <label for="mrp">MRP</label>
+        </div>
+    
+ 
+        <div class="category">
+          <label for="category">Category</label><br>
+          <select id="category" formControlName="category" name="category" autocomplete="off">
+            <option value="">Select---</option>
+            <option value="Vegetables">Vegetables</option>
+              <option value="Fruits">Fresh Fruits</option>
+              <option value="Dairy">Dairy, Bread, and Eggs</option>
+              <option value="Rice">Rice, Atta, and Dals</option>
+              <option value="Masalas">Masalas and  Dry Fruits</option>
+              <option value="Olis">Olis and Ghee</option>
+              <option value="Munchels">Munches</option>
+              <option value="Sweet">Sweet Tooth</option>
+              <option value="Drinks">Cold Drinks and Juices</option>
+              <option value="Biscuits">Biscuitsand Cakes</option>
+              <option value="Insatnt">Insatntand Frozen Food</option>
+              <option value="Meat">Meet and Seafood</option>
+              <option value="Cereals">Cereals and Breakfast</option>
+              <option value="Sauces">Sauces and spreads</option>
+              <option value="Tea">Tea Coffee and more</option>
+              <option value="Cleaning">Cleaning Essential</option>
+              <option value="Pharma">Pharma and Hyglene</option>
+              <option value="Bath">Bath, Body and Hair</option>
+              <option value="Paan-corner">Paan Corner</option>
+              <option value="Home">Home and kitchen</option>
+              <option value="Office">Office and Electricals</option>
+              <option value="Baby-Care">Baby-Care</option>
+              <option value="Pet-Supplles">Pet-Supplles</option>
+              <option value="Beauty">Beauty and Grooming</option>
+              <option value="others">Others</option>
+          </select>
+        </div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="popup" *ngIf="isPopupVisible">
+    <div class="popup-content">
+      <h3>Item Added</h3>
+      <p>Your item has been successfully added.</p>
+      <button (click)="closePopup()">Close</button>
+    </div>
+  </div>
+</div>
